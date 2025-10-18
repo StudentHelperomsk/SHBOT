@@ -17,7 +17,10 @@ def get_main_menu_keyboard():
             InlineKeyboardButton("💸 Цены", callback_data="price"),
             InlineKeyboardButton("🎁 Акции", callback_data="stocks")
         ],
-        [InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk")]
+        [
+            InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk"),
+            InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
+        ]
     ]
     return InlineKeyboardMarkup(keyboard)
 
@@ -356,4 +359,5 @@ def main() -> None:
     application.run_polling()
 
 if __name__ == "__main__":
+
     main()
