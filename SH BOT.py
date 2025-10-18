@@ -1,5 +1,42 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes, Defaults
+from datetime import datetime
+import logging
+
+# Настройка логирования
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("bot.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Ваш Telegram ID (замените на ваш реальный ID)
+ADMIN_CHAT_ID = 82377821222  # ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ ID
+
+async def notify_admin(context: ContextTypes.DEFAULT_TYPE, user, action: str):
+    """Функция для отправки уведомлений администратору"""
+    try:
+        username = f"@{user.username}" if user.username else "Нет юзернейма"
+        message = (
+            f"👤 Новое действие в боте:\n"
+            f"• Имя: {user.first_name}\n"
+            f"• Юзернейм: {username}\n"
+            f"• ID: {user.id}\n"
+            f"• Действие: {action}\n"
+            f"• Время: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        )
+        
+        # Отправляем сообщение администратору
+        await context.bot.send_message(
+            chat_id=ADMIN_CHAT_ID,
+            text=message
+        )
+    except Exception as e:
+        logger.error(f"Ошибка отправки уведомления: {e}")
 
 # Функция для создания главного меню
 def get_main_menu_keyboard():
@@ -64,8 +101,13 @@ def get_common_keyboard():
 
 # Обработчик команды /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    reply_markup = get_main_menu_keyboard()
+    user = update.effective_user
+    logger.info(f"User started bot: ID={user.id}, Username=@{user.username}")
     
+    # Отправляем уведомление администратору
+    await notify_admin(context, user, "Запустил бота (/start)")
+    
+    reply_markup = get_main_menu_keyboard()
     await update.message.reply_text(
         "<b>Добро пожаловать в Student Helper! 🎓</b>\n\n"
         "<b>Мы — профессиональный сервис помощи студентам ОмГТУ.</b>\n\n"
@@ -86,9 +128,28 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 # Обработчик нажатий на кнопки
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
+    user = update.effective_user
     await query.answer()
     
     data = query.data
+    
+    # Словарь для преобразования callback_data в читаемые названия кнопок
+    button_names = {
+        "ref": "💎 Приведи друга",
+        "guarantess": "🛡️ Гарантии",
+        "refund": "↩️ Условия возврата", 
+        "about": "ℹ️ О нас",
+        "price": "💸 Цены",
+        "stocks": "🎁 Акции",
+        "stock1": "🥇 Акция 'Первый заказ'",
+        "stock2": "📚 Акция 'Две работы'",
+        "stock3": "📢 Акция '5% за подписку'",
+        "main_menu": "⬅️ Главное меню"
+    }
+    
+    # Отправляем уведомление о нажатии кнопки
+    button_name = button_names.get(data, data)
+    await notify_admin(context, user, f"Нажал кнопку: {button_name}")
     
     if data == "guarantess":
         text = (
@@ -359,5 +420,4 @@ def main() -> None:
     application.run_polling()
 
 if __name__ == "__main__":
-
     main()
