@@ -15,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Ваш Telegram ID (замените на ваш реальный ID)
-ADMIN_CHAT_ID = 82377821222  # ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ ID
+ADMIN_CHAT_ID = 8237782122  # ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ ID
 
 async def notify_admin(context: ContextTypes.DEFAULT_TYPE, user, action: str):
     """Функция для отправки уведомлений администратору"""
@@ -421,3 +421,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
