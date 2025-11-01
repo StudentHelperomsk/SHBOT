@@ -380,7 +380,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         )
         reply_markup = get_common_keyboard()
         
-        elif data == "diploma":
+    elif data == "diploma":
         text = (
         "🎓 <b>Дипломные работы под ключ</b>\n\n"
     
@@ -462,6 +462,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
