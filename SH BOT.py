@@ -415,7 +415,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         
         "👇 Напишите нам для консультации"
         )
-        reply_markup = get_stock_detail_keyboard()
+        reply_markup = get_common_keyboard()
         
     elif data == "main_menu":
         # Возврат в главное меню
@@ -462,6 +462,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
