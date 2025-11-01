@@ -57,7 +57,7 @@ def get_main_menu_keyboard():
         [
             InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk"),
             InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")
-        ]
+        ],
         [
             InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
         ]
@@ -461,6 +461,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
