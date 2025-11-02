@@ -54,12 +54,12 @@ def get_main_menu_keyboard():
             InlineKeyboardButton("💸 Цены", callback_data="price"),
             InlineKeyboardButton("🎁 Акции", callback_data="stocks")
         ],
-        [
-            InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma"),
-            InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk")
+        [ 
+            InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk"),
+            InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
         ],
         [
-            InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
+            InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -462,6 +462,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
