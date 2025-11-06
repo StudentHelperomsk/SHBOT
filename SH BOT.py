@@ -41,7 +41,7 @@ async def notify_admin(context: ContextTypes.DEFAULT_TYPE, user, action: str):
 # Функция для создания главного меню
 def get_main_menu_keyboard():
     keyboard = [
-        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Omsk")],
+        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
         [
             InlineKeyboardButton("💎 Приведи друга", callback_data="ref"),
             InlineKeyboardButton("🛡️ Гарантии", callback_data="guarantess")
@@ -55,7 +55,7 @@ def get_main_menu_keyboard():
             InlineKeyboardButton("🎁 Акции", callback_data="stocks")
         ],
         [ 
-            InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Omsk"),
+            InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Asssit"),
             InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
         ],
         [
@@ -67,7 +67,7 @@ def get_main_menu_keyboard():
 # Функция для создания меню акций
 def get_stocks_menu_keyboard():
     keyboard = [
-        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Omsk")],
+        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
         [InlineKeyboardButton("🥇 Акция 'Первый заказ'", callback_data="stock1")],
         [InlineKeyboardButton("👥 Акция 'Приведи друга'", callback_data="ref")],
         [InlineKeyboardButton("📚 Акция 'Две работы'", callback_data="stock2")],
@@ -78,7 +78,7 @@ def get_stocks_menu_keyboard():
 
 def get_public_link_keyboard():
     keyboard = [
-        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Omsk")],
+        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
         [InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")],
         [InlineKeyboardButton("⬅️ Назад к акциям", callback_data="stocks")],
         [InlineKeyboardButton("⬅️ Главное меню", callback_data="main_menu")]
@@ -462,6 +462,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
