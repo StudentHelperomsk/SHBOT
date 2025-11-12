@@ -43,6 +43,12 @@ def get_main_menu_keyboard():
     keyboard = [
         [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
         [
+            InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")
+        ],
+        [
+            InlineKeyboardButton("🖋 Написание лекций", callback_data="lecture")
+        ],
+        [
             InlineKeyboardButton("💎 Приведи друга", callback_data="ref"),
             InlineKeyboardButton("🛡️ Гарантии", callback_data="guarantess")
         ],
@@ -57,12 +63,6 @@ def get_main_menu_keyboard():
         [ 
             InlineKeyboardButton("💬 Поддержка", url="https://t.me/SH_Asssit"),
             InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")
-        ],
-        [
-            InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")
-        ],
-        [
-            InlineKeyboardButton("🖋 Написание лекций", callback_data="lecture")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -484,6 +484,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
