@@ -79,15 +79,6 @@ def get_stocks_menu_keyboard():
     ]
     return InlineKeyboardMarkup(keyboard)
 
-def get_public_link_keyboard():
-    keyboard = [
-        [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
-        [InlineKeyboardButton("📢 Наш канал", url="https://t.me/SH_Public")],
-        [InlineKeyboardButton("⬅️ Назад к акциям", callback_data="stocks")],
-        [InlineKeyboardButton("⬅️ Главное меню", callback_data="main_menu")]
-    ]
-    return InlineKeyboardMarkup(keyboard)
-
 # Функция для создания клавиатуры для отдельных акций
 def get_stock_detail_keyboard():
     keyboard = [
@@ -487,6 +478,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
