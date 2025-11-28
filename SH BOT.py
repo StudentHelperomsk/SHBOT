@@ -102,7 +102,7 @@ def get_stock_box_price_keyboard():
 def get_stock_price_keyboard():
     keyboard = [
         [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
-        [InlineKeyboardButton("⬅️ Назад", callback_data="box_pice")],
+        [InlineKeyboardButton("⬅️ Назад", callback_data="box_price")],
         [InlineKeyboardButton("⬅️ Главное меню", callback_data="main_menu")]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -498,7 +498,6 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         "• Полные объяснения заданий\n"
         "• Приоритетная очередь\n"
         "💸 <b>Цена:</b> 2490 ₽ / месяц | 22990 ₽ / год\n"
-
         )
         reply_markup = get_stock_box_price_keyboard()
         
@@ -548,6 +547,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
