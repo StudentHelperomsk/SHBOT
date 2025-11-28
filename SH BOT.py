@@ -93,7 +93,7 @@ def get_stock_box_price_keyboard():
     keyboard = [
         [InlineKeyboardButton("🚀 Сделать заказ", url="https://t.me/SH_Assist")],
         [InlineKeyboardButton("💸 Подробные цены", callback_data="price")],
-        InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")],
+        [InlineKeyboardButton("🎓 Дипломные работы", callback_data="diploma")],
         [InlineKeyboardButton("⬅️ Главное меню", callback_data="main_menu")]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -547,6 +547,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
